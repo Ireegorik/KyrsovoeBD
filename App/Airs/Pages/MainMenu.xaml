@@ -1,0 +1,299 @@
+﻿<Page x:Class="Airs.Pages.MainMenu"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:local="clr-namespace:Airs.Pages"
+mc:Ignorable="d"
+d:DesignHeight="450" d:DesignWidth="800"
+Title="MainMenu" Width="794" Height="471">
+
+    <Grid>
+
+        <Grid Name="Pil" HorizontalAlignment="Left" Height="471" VerticalAlignment="Top" Width="794" Visibility="Visible" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition MaxWidth="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="View available Airplanes" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="0" Click="Airplanes_Butt"/>
+            <Button Content="View available flights" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="1" Click="Flights_Butt"/>
+            <Button Content="View available airports" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="2" Click="AirPorts_Butt"/>
+            <Button Content="Edit information about me" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Margin="0,117,0,0" Grid.Row="2" Grid.RowSpan="2" Click="EditInfos_Butt"/>
+            <Grid Name="InfosAboutMe" Grid.Column="1" HorizontalAlignment="Left" Height="471" Grid.RowSpan="4" VerticalAlignment="Top" Width="594" Visibility="Hidden" Grid.ColumnSpan="2" d:IsHidden="True">
+                <Label Background="#99D3D3D3" Margin="0,0,118,441" Content="Name"/>
+                <TextBox Name="Name" Margin="0,35,10,406"></TextBox>
+                <Label Background="#99D3D3D3" Margin="0,65,10,376" Content="Surname"/>
+                <TextBox Name="Surname" Margin="0,100,10,341"/>
+                <Label Background="#99D3D3D3" Margin="0,131,10,310" Content="Middle name"/>
+                <TextBox Name="MiddleName" Margin="0,166,10,275"/>
+                <Label Background="#99D3D3D3" Margin="0,197,10,244" Content="Phone number"/>
+                <TextBox Name="PhoneNumber" Margin="0,232,10,209"/>
+                <Label Background="#99D3D3D3" Margin="0,263,10,178" Content="Adress"/>
+                <TextBox Name="Adress" Margin="0,298,10,143"/>
+                <Label Background="#99D3D3D3" Margin="0,328,518,113" Content="Hire's date"/>
+                <Label Background="#99D3D3D3" Name="HireDate" Margin="76,328,10,113" Content=""/>
+                <Label Background="#99D3D3D3" Margin="0,358,518,83" Content="Gender"/>
+                <Label Background="#99D3D3D3" Name="Gender" Margin="76,358,10,83" Content=""/>
+                <Button Content="Confirm" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="190" Margin="394,387,0,0" Click="Confirm_Button"/>
+                <Button Content="Leave Account" HorizontalAlignment="Left" Margin="476,-1,0,0" VerticalAlignment="Top" Width="108" Height="31" Click="LeaveAccount"/>
+            </Grid>
+            <Grid Name="InfosAirPorts" Grid.Column="1" HorizontalAlignment="Left" Height="471" Grid.RowSpan="4" VerticalAlignment="Top" Width="594" Grid.ColumnSpan="2" Visibility="Hidden" d:IsHidden="True">
+                <ListView Name="ListAirPorts" HorizontalAlignment="Left" Height="471" VerticalAlignment="Top" Width="594">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="City" DisplayMemberBinding="{Binding City}"/>
+                            <GridViewColumn Header="Adress" DisplayMemberBinding="{Binding Adress}"/>
+                            <GridViewColumn Header="Runway" DisplayMemberBinding="{Binding Runway}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+            <Grid Name="InfosFlights" Grid.Column="1" HorizontalAlignment="Left" Height="471" Grid.RowSpan="4" VerticalAlignment="Top" Width="594" Grid.ColumnSpan="2" Visibility="Hidden" d:IsHidden="True">
+                <ListView Name="ListFlights" HorizontalAlignment="Left" Height="471" VerticalAlignment="Top" Width="594">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Flight_Date}"/>
+                            <GridViewColumn Header="Point Of Departure" DisplayMemberBinding="{Binding Point_Of_Departure}"/>
+                            <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding Destination}"/>
+                            <GridViewColumn Header="Duration" DisplayMemberBinding="{Binding Duration}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+            <Grid x:Name="InfosAirplanes" Grid.Column="1" HorizontalAlignment="Left" Height="471" Grid.RowSpan="4" VerticalAlignment="Top" Width="594" Grid.ColumnSpan="2" Visibility="Hidden">
+                <ListView x:Name="ListAirplanes" HorizontalAlignment="Left" Height="471" VerticalAlignment="Top" Width="594">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
+                            <GridViewColumn Header="Count chairs" DisplayMemberBinding="{Binding Count_Chairs}"/>
+                            <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Location}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+
+        </Grid>
+        <Grid Name="Passenger" Height="471" Width="794" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition MaxWidth="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Buy ticket" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="0" Click="BuyTicktButton"/>
+            <Button Content="Show my tickets" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="2" Click="ShowTickets"/>
+            <Button Content="Info about me" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Margin="0,117,0,0" Grid.Row="2" Grid.RowSpan="2" Click="ProfilePassShow"/>
+            <Grid Name="Ticketbuy" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Column="1" Visibility="Hidden">
+
+
+
+                <ScrollViewer Name="ChoiceAirPortToS" VerticalScrollBarVisibility="Visible" Height="136" Margin="97,29,409,307" Width="85"/>
+                <ScrollViewer Name="ChoiceAirPortFromS" VerticalScrollBarVisibility="Visible" Height="136" Margin="10,29,499,307"/>
+
+
+                <Label Background="#99D3D3D3" Content="Year" HorizontalAlignment="Left" Height="29" Margin="207,69,0,0" VerticalAlignment="Top" Width="45"/>
+                <Label Background="#99D3D3D3" Content="Month" HorizontalAlignment="Left" Height="29" Margin="257,69,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label Background="#99D3D3D3" Content="Day" HorizontalAlignment="Left" Height="29" Margin="312,69,0,0" VerticalAlignment="Top" Width="43"/>
+                <TextBox Name="YearFlightS" HorizontalAlignment="Left" Height="18" Margin="207,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+                <TextBox Name="MonthFlightS" HorizontalAlignment="Left" Height="18" Margin="257,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                <TextBox Name="DayFlightS" HorizontalAlignment="Left" Height="18" Margin="310,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+                <ListView Name="ListTicketsBuy" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="584" SelectionChanged="ListTicketsBuy_SelectionChanged" Margin="0,170,0,0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Flight num" DisplayMemberBinding="{Binding Flight_Num}"/>
+                            <GridViewColumn Header="Flight date" DisplayMemberBinding="{Binding Filight_Date}"/>
+                            <GridViewColumn Header="Point of departure" DisplayMemberBinding="{Binding Point_Of_Departure}"/>
+                            <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding Destination}"/>
+                            <GridViewColumn Header="Duration" DisplayMemberBinding="{Binding Duration}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="buy" HorizontalAlignment="Left" Height="33" Margin="210,429,0,0" VerticalAlignment="Top" Width="162" Click="Buy"/>
+
+                <TextBlock Background="#99D3D3D3" Name="FlightNumBuy" HorizontalAlignment="Left" Height="34" Margin="120,335,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="117" TextAlignment="Center" RenderTransformOrigin="0.493,0.569" />
+                <Label Content="Flight number" HorizontalAlignment="Left" Height="34" Margin="32,335,0,0" VerticalAlignment="Top" Width="88" Background="LightGray" Opacity="0.6"/>
+                <TextBlock Background="#99D3D3D3" Name="FlightDateBuy" HorizontalAlignment="Left" Height="34" Margin="95,374,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="142" TextAlignment="Center" RenderTransformOrigin="0.493,0.569" />
+                <Label Background="#99D3D3D3" Content="Date" HorizontalAlignment="Left" Height="34" Margin="32,374,0,0" VerticalAlignment="Top" Width="63"/>
+                <TextBlock Background="#99D3D3D3" Name="ToBuy" HorizontalAlignment="Left" Height="34" Margin="355,374,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="220" TextAlignment="Center" RenderTransformOrigin="0.493,0.569" />
+                <Label Background="#99D3D3D3" Content="To" HorizontalAlignment="Left" Height="34" Margin="328,374,0,0" VerticalAlignment="Top" Width="27"/>
+                <TextBlock Background="#99D3D3D3" Name="FromBuy" HorizontalAlignment="Left" Height="34" Margin="372,335,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="203" TextAlignment="Center" RenderTransformOrigin="0.493,0.569" />
+                <Label Background="#99D3D3D3" Content="From" HorizontalAlignment="Left" Height="34" Margin="328,335,0,0" VerticalAlignment="Top" Width="44"/>
+                <Button Content="Find Flight" HorizontalAlignment="Left" Height="47" Margin="380,74,0,0" VerticalAlignment="Top" Width="181" Click="Find_Fight"/>
+                <Label Background="#99D3D3D3" Content="From" HorizontalAlignment="Left" Height="24" Margin="10,0,0,0" VerticalAlignment="Top" Width="85"/>
+                <Label Background="#99D3D3D3" Content="To" HorizontalAlignment="Left" Height="24" Margin="100,0,0,0" VerticalAlignment="Top" Width="85"/>
+                <Label Background="#99D3D3D3" Content="From" HorizontalAlignment="Left" Height="29" Margin="207,11,0,0" VerticalAlignment="Top" Width="43"/>
+                <Label Background="#99D3D3D3" Name="FromS" Content="" HorizontalAlignment="Left" Height="29" Margin="250,11,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label Background="#99D3D3D3" Content="To" HorizontalAlignment="Left" Height="29" Margin="207,40,0,0" VerticalAlignment="Top" Width="43"/>
+                <Label Background="#99D3D3D3"  Name="ToS" Content="" HorizontalAlignment="Left" Height="29" Margin="250,40,0,0" VerticalAlignment="Top" Width="105"/>
+                <ScrollViewer Name="ChoiceRow" VerticalScrollBarVisibility="Visible" Margin="67,408,443,0"/>
+                <ScrollViewer Name="ChoicePlace" VerticalScrollBarVisibility="Visible" Margin="430,408,80,0"/>
+            </Grid>
+            <Grid Name="Flights" Grid.ColumnSpan="2" Margin="0,0,0,1" Grid.RowSpan="4" Grid.Column="1" Visibility="Hidden">
+
+            </Grid>
+            <Grid Name="ShowMyTickets" Grid.ColumnSpan="2" Margin="0,0,0,1" Grid.RowSpan="4" Grid.Column="1" Visibility="Hidden" d:IsHidden="True">
+                <ListView Name="Tickets" HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="594">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Number flight" DisplayMemberBinding="{Binding Flight_Num}"/>
+                            <GridViewColumn Header="From" DisplayMemberBinding="{Binding From}"/>
+                            <GridViewColumn Header="To" DisplayMemberBinding="{Binding To}"/>
+                            <GridViewColumn Header="Flight date" DisplayMemberBinding="{Binding Flight_Date}"/>
+                            <GridViewColumn Header="Place number" DisplayMemberBinding="{Binding Place_Num}"/>
+                            <GridViewColumn Header="Row number" DisplayMemberBinding="{Binding Row_Num}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="Print tickets" HorizontalAlignment="Left" Margin="509,441,0,0" VerticalAlignment="Top" Width="75" Click="PrintAll"/>
+                <Label Name="ErrorPrint" Content="" HorizontalAlignment="Left" Margin="10,436,0,0" VerticalAlignment="Top" Height="25" Width="494" Background="#00000000" Foreground="Red"/>
+
+            </Grid>
+            <Grid Name="InfoAboutMe" Grid.ColumnSpan="2" Margin="0,0,0,1" Grid.RowSpan="4" Grid.Column="1" Visibility="Hidden" d:IsHidden="True">
+                <Button Content="Leave Account" HorizontalAlignment="Left" Margin="476,0,0,0" VerticalAlignment="Top" Width="108" Height="30" Click="LeaveAccount"/>
+                <Label Background="#99D3D3D3" Margin="0,0,118,441" Content="Name"/>
+                <TextBox Name="NamePas" Margin="0,35,10,406"></TextBox>
+                <Label Background="#99D3D3D3" Margin="0,65,10,376" Content="Surname"/>
+                <TextBox Name="SurnamePas" Margin="0,100,10,341"/>
+                <Label Background="#99D3D3D3" Margin="0,131,10,310" Content="Middle name"/>
+                <TextBox Name="MiddleNamePas" Margin="0,166,10,275"/>
+                <Label Background="#99D3D3D3" Margin="0,197,10,244" Content="Citizen"/>
+                <TextBox Name="Citizen" Margin="0,232,10,209"/>
+
+
+                <Button Content="Confirm" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="190" Margin="10,388,0,0" Click="Confirm_Button"/>
+                <Label Background="#99D3D3D3" Margin="0,333,394,108" Content="Gender"/>
+                <Label Background="#99D3D3D3" Name="GenderPas" Margin="205,333,10,108" Content=""/>
+                <Label Background="#99D3D3D3" Margin="200,388,288,53" Content="Passport Number"/>
+                <Label Background="#99D3D3D3" Name="PasN" Margin="306,388,10,53" Content=""/>
+                <Label Background="#99D3D3D3" Margin="200,423,288,18" Content="Passport sires"/>
+                <Label Background="#99D3D3D3" Name="PAsS" Margin="306,423,10,18" Content=""/>
+
+            </Grid>
+        </Grid>
+        <Grid x:Name="Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Height="Auto" Visibility="Visible" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition MaxWidth="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Add airplane" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="0" Click="ViewAirplane"/>
+            <Button Content="Add airport" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="1" Click="AddAirportClick"/>
+            <Button Content="Add Flight" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Grid.Row="2" Click="FlightADD"/>
+            <Button Content="Profile" Grid.Column="0" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="200" Margin="0,117,0,0" Grid.Row="2" Grid.RowSpan="2" Click="ViewProfileAdmin"/>
+            <Grid x:Name="AddAirplaneMenu" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" d:IsHidden="True" >
+                <ScrollViewer x:Name="airplaneType" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="143" AllowDrop="True" Margin="10,44,0,0"/>
+                <ScrollViewer x:Name="airplaneLocation" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="143" AllowDrop="True" Margin="441,44,0,0"/>
+                <TextBox x:Name="NamePlane" HorizontalAlignment="Left" Height="23" Margin="153,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <Button Content="Add" HorizontalAlignment="Left" Height="25" Margin="153,72,0,0" VerticalAlignment="Top" Width="288" Click="Add_Airplane"/>
+                <Label Background="#99D3D3D3" Content="Add airplane type" HorizontalAlignment="Left" Height="40" Margin="153,265,0,0" VerticalAlignment="Top" Width="283" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="TypeName" HorizontalAlignment="Left" Height="24" Margin="226,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+                <Label Background="#99D3D3D3" Content="Type name" HorizontalAlignment="Left" Height="31" Margin="226,305,0,0" VerticalAlignment="Top" Width="138" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Background="#99D3D3D3" Content="All rows" HorizontalAlignment="Left" Height="31" Margin="226,360,0,0" VerticalAlignment="Top" Width="65"/>
+                <Label Background="#99D3D3D3" Content="Bussnes rows" HorizontalAlignment="Left" Height="31" Margin="284,360,0,0" VerticalAlignment="Top" Width="80"/>
+                <Button Content="Add" HorizontalAlignment="Left" Height="32" Margin="226,430,0,0" VerticalAlignment="Top" Width="138" Click="AddAirType"/>
+                <TextBox x:Name="AllRows" HorizontalAlignment="Left" Height="24" Margin="226,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65"/>
+                <TextBox x:Name="Busnessrows" HorizontalAlignment="Left" Height="24" Margin="299,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65"/>
+                <Label Background="#99D3D3D3" Content="Add airplane" HorizontalAlignment="Left" Height="29" Margin="153,10,0,0" VerticalAlignment="Top" Width="297" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Background="#99D3D3D3" Content="Choice Type" HorizontalAlignment="Left" Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="130"/>
+                <Label Background="#99D3D3D3" Content="Choice Airplane" HorizontalAlignment="Left" Height="29" Margin="454,10,0,0" VerticalAlignment="Top" Width="130"/>
+                <ListView x:Name="ListAirPlanesA" HorizontalAlignment="Left" Height="163" Margin="153,102,0,0" VerticalAlignment="Top" Width="288" VerticalContentAlignment="Center" Background="White">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding AirPlane_Num}" Width="30"/>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" Width="75"/>
+                            <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Location}" Width="50 "/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+
+            </Grid>
+            <Grid x:Name="AddAirPlane" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" d:IsHidden="True">
+                <Button Content="Add" HorizontalAlignment="Left" Margin="236,367,0,0" VerticalAlignment="Top" Width="75" Click="AddAirport"/>
+                <Label Background="#99D3D3D3" Content="Name" HorizontalAlignment="Left" Height="25" Margin="99,70,0,0" VerticalAlignment="Top" Width="190"/>
+                <TextBox x:Name="AirPortNameA" HorizontalAlignment="Left" Height="32" Margin="99,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                <Label Background="#99D3D3D3" Content="Adress" HorizontalAlignment="Left" Height="30" Margin="99,132,0,0" VerticalAlignment="Top" Width="190"/>
+                <TextBox x:Name="AirPortAdressA" HorizontalAlignment="Left" Height="27" Margin="99,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                <Label Background="#99D3D3D3" Content="City" HorizontalAlignment="Left" Height="30" Margin="99,201,0,0" VerticalAlignment="Top" Width="190"/>
+                <TextBox x:Name="AirPortCityA" HorizontalAlignment="Left" Height="27" Margin="99,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                <Label Background="#99D3D3D3" Content="Runway" HorizontalAlignment="Left" Height="30" Margin="294,70,0,0" VerticalAlignment="Top" Width="59"/>
+                <TextBox x:Name="AirportRunwayA" HorizontalAlignment="Left" Height="32" Margin="294,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
+
+            </Grid>
+            <Grid x:Name="AddFlight" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" d:IsHidden="True">
+                <ScrollViewer x:Name="ChoiceAirPlane" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="143" AllowDrop="True" Margin="10,77,0,0"/>
+                <ScrollViewer x:Name="ChoiceAirPortTo" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="114" AllowDrop="True" Margin="460,77,0,0"/>
+                <ScrollViewer x:Name="ChoicePilot" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="96" AllowDrop="True" Margin="359,175,0,0"/>
+                <Label Background="#99D3D3D3" Content="Airplane" HorizontalAlignment="Left" Height="28" Margin="10,49,0,0" VerticalAlignment="Top" Width="143"/>
+                <Label Background="#99D3D3D3" Content="Destination" HorizontalAlignment="Left" Height="28" Margin="460,49,0,0" VerticalAlignment="Top" Width="114"/>
+                <Label Background="#99D3D3D3" Content="Aiplane name:" HorizontalAlignment="Left" Height="31" Margin="158,49,0,0" VerticalAlignment="Top" Width="92"/>
+                <Label Background="#99D3D3D3" x:Name="AirplaneLabel" Content="" HorizontalAlignment="Left" Height="31" Margin="255,49,0,0" VerticalAlignment="Top" Width="187"/>
+                <Label Background="#99D3D3D3" Content="From" HorizontalAlignment="Left" Height="31" Margin="158,80,0,0" VerticalAlignment="Top" Width="92"/>
+                <Label Background="#99D3D3D3" x:Name="FromLabel" Content="" HorizontalAlignment="Left" Height="31" Margin="255,80,0,0" VerticalAlignment="Top" Width="187"/>
+                <Label Background="#99D3D3D3" Content="To" HorizontalAlignment="Left" Height="31" Margin="158,116,0,0" VerticalAlignment="Top" Width="92"/>
+                <Label Background="#99D3D3D3" x:Name="ToLabel" Content="" HorizontalAlignment="Left" Height="31" Margin="255,116,0,0" VerticalAlignment="Top" Width="187"/>
+                <Label Background="#99D3D3D3" Content="Pilot" HorizontalAlignment="Left" Height="23" Margin="359,147,0,0" VerticalAlignment="Top" Width="83"/>
+                <Label Background="#99D3D3D3" Content="Year" HorizontalAlignment="Left" Height="31" Margin="158,157,0,0" VerticalAlignment="Top" Width="45"/>
+                <Label Background="#99D3D3D3" Content="Month" HorizontalAlignment="Left" Height="31" Margin="208,157,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label Background="#99D3D3D3" Content="Day" HorizontalAlignment="Left" Height="31" Margin="263,157,0,0" VerticalAlignment="Top" Width="43"/>
+                <Label Background="#99D3D3D3" Content="Hours" HorizontalAlignment="Left" Height="31" Margin="311,157,0,0" VerticalAlignment="Top" Width="43"/>
+                <TextBox x:Name="YearFlight" HorizontalAlignment="Left" Height="18" Margin="158,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                <TextBox x:Name="MonthFlight" HorizontalAlignment="Left" Height="18" Margin="208,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"/>
+                <TextBox x:Name="DayFlight" HorizontalAlignment="Left" Height="18" Margin="261,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                <TextBox x:Name="Duration" HorizontalAlignment="Left" Height="18" Margin="309,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                <Label Background="#99D3D3D3" Content="Pilot" HorizontalAlignment="Left" Height="31" Margin="158,225,0,0" VerticalAlignment="Top" Width="45"/>
+                <Label Background="#99D3D3D3" x:Name="PilotName" Content="" HorizontalAlignment="Left" Height="31" Margin="208,225,0,0" VerticalAlignment="Top" Width="151"/>
+                <Button Content="Add" HorizontalAlignment="Left" Height="39" Margin="158,261,0,0" VerticalAlignment="Top" Width="196" Click="AddbuttonFlight"/>
+            </Grid>
+            <Grid x:Name="ProfileAdmin" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Column="1">
+                <Button Content="Leave Account" HorizontalAlignment="Left" Margin="466,0,0,0" VerticalAlignment="Top" Width="108" Height="31" Click="LeaveAccount"/>
+                <Button Content="Create new account" HorizontalAlignment="Left" Margin="466,440,0,0" VerticalAlignment="Top" Width="108" Height="22" Click="CreateAnAccountAdmin"/>
+                <Label Background="#99D3D3D3" Margin="0,0,118,441" Content="Name"/>
+                <TextBox x:Name="NameAdmin" Margin="0,35,10,406"/>
+                <Label Background="#99D3D3D3" Margin="0,65,10,376" Content="Surname"/>
+                <TextBox x:Name="SurnameAdmin" Margin="0,100,10,341"/>
+                <Label Background="#99D3D3D3" Margin="0,131,10,310" Content="Middle name"/>
+                <TextBox x:Name="MiddleNameAdmin" Margin="0,166,10,275"/>
+                <Label Background="#99D3D3D3" Margin="0,197,10,244" Content="Phone number"/>
+                <TextBox x:Name="PhoneNumberAdmin" Margin="0,232,10,209"/>
+                <Label Background="#99D3D3D3" Margin="0,263,10,178" Content="Adress"/>
+                <TextBox x:Name="AdressAdmin" Margin="0,298,10,143"/>
+
+
+                <Button Content="Confirm" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="190" Margin="10,388,0,0" Click="Confirm_Button"/>
+
+            </Grid>
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Page>

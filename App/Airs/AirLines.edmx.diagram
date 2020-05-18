@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b633cc407c14e5a9bb51cc173e3d93a" Name="Diagram1">
+        <EntityTypeShape EntityType="AirPortModel.Admins" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.AirPlanes" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.AirPlaneTypes" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.AirPort" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.Flights" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.Login_Password" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.Passengers" Width="1.5" PointX="5.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.Pilots" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.Seets_On_The_Plane" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortModel.Tickets_Sold" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="AirPortModel.FK_Admins_Login_Password" ManuallyRouted="true" >
+          <ConnectorPoint PointX="1.2968737499999992" PointY="10.2494921875" />
+          <ConnectorPoint PointX="1.2968737499999992" PointY="12.87474609375" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="12.87474609375" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="12.87474609375" />
+          <ConnectorPoint PointX="3" PointY="12.87474609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="AirPortModel.FK_AirPlanes_AirPlaneTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_AirPlanes_AirPort" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Flights_AirPlanes" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Seets_On_The_Plane_AirPlanes" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Flights_Pilots" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Tickets_Sold_Flights" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Passengers_Login_Password" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Pilots_Login_Password" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortModel.FK_Tickets_Sold_Passengers1" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7.25" PointY="12.942047526041666" />
+          <ConnectorPoint PointX="8.3226479513270775" PointY="12.942047526041666" />
+          <ConnectorPoint PointX="8.3226479513270775" PointY="8.1340950520833335" />
+        </AssociationConnector>
+        <AssociationConnector Association="AirPortModel.FK_Tickets_Sold_Seets_On_The_Plane" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
